@@ -1,4 +1,9 @@
 /* required styles */
+
+* {
+	font-family: 'Montserrat', sans-serif !important;
+}
+
 body{
 	margin:auto;
 }
@@ -641,3 +646,40 @@ body{
 	  overflow-x: hidden;
 	  overflow-y: auto;
   }
+
+#LeftMenuBox {
+	position: absolute;
+	z-index: 1000;
+	background-color: rgba(25,25,25,0.5);
+	height: 100%;
+	overflow: hidden;
+}
+#LeftMenuBox .menu-legend-container {
+	position: relative;
+	margin-right: 10px;
+	float: right;
+}
+#LeftMenuBox .left-menu-controls {
+	float: left;
+	height: 100%;
+	background-color: #443A3A;
+	z-index: 1001;
+	position: relative;
+}
+
+#LeftMenuBox .left-menu-controls a {
+	color: #dddddd;
+	text-align: center;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-color: #5e5454;
+	border-bottom: 1px solid #5e5454;
+	text-decoration: none;
+	font-size: 28px;
+	font-weight: bold;
+}
+#LeftMenuBox .left-menu-controls a:hover {
+	color: #ffffff;
+	background-color: #7e7474;
+}

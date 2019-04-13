@@ -12,7 +12,7 @@ var grrsecondtest = L.layerGroup();
 
 geojsonsecond = L.geoJson(grreighten, {style: style, onEachFeature: onEachFeature}).addTo(grrsecondtest);
 
-var mbAttr = 'Developed by TSNIGRI - ' +
+var mbAttr = 'Developed by TSNIGRI Department of GIS - ' +
     'Map data &copy; <a href="https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО';
 var secAttr = '&copy; <a href="https://www.openstreetmap.org/"> OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
@@ -70,8 +70,8 @@ var overlays = {
 };
 
 L.control.layers(baseLayers, overlays, {
-    position: 'topright',
-    collapsed:true
+    position: 'topleft',
+    collapsed:false
 }).addTo(map);
 
     
