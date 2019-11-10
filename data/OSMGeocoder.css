@@ -6,7 +6,7 @@
 
 .leaflet-control-geocoder {
 	box-shadow: 0 1px 5px #999;
-	background: #443A3A;
+	background: #222222	;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
@@ -41,5 +41,7 @@
 }
 
 .leaflet-control-geocoder-expanded .leaflet-control-geocoder-form {
-	padding: 6.7px;
+	padding: 0px;
+	margin-right: 50px;
+
 }

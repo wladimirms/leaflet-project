@@ -1,0 +1,90 @@
+#leftbox {
+    padding-left: 10px;
+    padding-top: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+#leftbox > *{
+    width: 380px;
+    overflow: hidden;
+    min-height: 30px;
+}
+
+#leftbox .leftbox-header{
+    background-color: #222222;
+    height: 60px;
+}
+
+#leftbox .leftbox-nav{
+    background-color: #222222;
+    height: 20px;
+}
+
+#leftbox .leftbox-content{
+    background-color: #443A3A;
+    min-height: 400px;
+}
+
+#leftbox .leftbox-ad{
+    background-color: #222222;
+    height: 90px;
+}
+
+#leftbox .leftbox-header > span{
+    display: block;
+    text-align: right;
+    color: #777777;
+}
+
+#leftboxSign {
+    float: right;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#leftboxMenu {
+    font-weight: bold;
+    color: white;
+    background-color: #444444;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-decoration: none;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 21px;
+    margin-right: 10px;
+}
+
+#leftboxLogo {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+#leftboxUser {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+#leftboxControl {
+    font-weight: normal;
+    color: white;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 48px;
+    margin-right: 6%;
+    font-size: 14px;
+    text-decoration: none;
+}

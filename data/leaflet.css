@@ -1,7 +1,7 @@
 /* required styles */
 
 * {
-	font-family: 'Montserrat', sans-serif !important;
+	font-family: 'Helvetica', sans-serif !important;
 }
 
 body{
@@ -281,7 +281,7 @@ body{
 	}
 .leaflet-bar a,
 .leaflet-bar a:hover {
-	background-color: #443A3A;
+	background-color: #222222;
 	border-bottom: 0px solid #cacaca;
 	width: 26px;
 	height: 26px;
@@ -405,7 +405,7 @@ body{
 
 .leaflet-container .leaflet-control-attribution {
 	background: #fff;
-	background: rgba(255, 255, 255, 0.7);
+	background: #222222;
 	margin: 0;
 	}
 .leaflet-control-attribution,

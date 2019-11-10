@@ -65,14 +65,31 @@ var overlays = {
     "Карта OpenStreetMap": OpenStreetMap,
     "Космические снимки ESRI": Sattelite,
     "Объекты ГРР за 2018 год": grrsecondtest,
-    "Объекты ГРР за 2017 год": grrtest
-    //"Границы ФО": federaldistricts
+    "Объекты ГРР за 2017 год": grrtest,
+    "Границы субъектов РФ": federalsubjects
 };
 
 L.control.layers(baseLayers, overlays, {
-    position: 'topleft',
-    collapsed:false
+    position: 'topright',
+    collapsed:true
 }).addTo(map);
+
+var drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+var drawControl = new L.Control.Draw({
+    draw: {
+        polygon: true,
+        marker: true,
+        polyline: false,
+        rectangle: false,
+        circle: true,
+        circlemarker: false
+    },
+    edit: {
+        featureGroup: drawnItems
+        }
+    });
+    map.addControl(drawControl);
 
     
 

@@ -1,5 +1,5 @@
-var federaldistricts = L.tileLayer.wms("http://localhost:8080/geoserver/TSNIGRI_map/wms", {
-        layers: 'TSNIGRI_map:federaldistricts',
+var federalsubjects = L.tileLayer.wms("http://192.168.1.70:8080/geoserver/TOP/wms", {
+        layers: 'TOP:federalsubjects, TOP:rfborders',
         format: 'image/png',
         transparent: true,
         version: "1.1.0",

@@ -1,4 +1,4 @@
-    var legend = L.control({position: 'topleft'});
+    var legend = L.control({position: 'topright'});
     
     legend.onAdd = function (map) {
 

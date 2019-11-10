@@ -15,8 +15,8 @@ var funcLM_Init = function () {
     SEARCH.wrap('<div></div>'); // оборачиваем объект в другой объект
     var SEARCH_WRAP = SEARCH.parent(); // получаем объект родитель
     var SEARCH_HTML = SEARCH_WRAP.html(); // получаем HTML (!!!)ВНУТРИ объекта
-    SEARCH_WRAP.remove(); // Удаляем объект
-    LM_Data.legendContainer.prepend(SEARCH_HTML); // добавляем HTML в начало объекта
+    //SEARCH_WRAP.remove(); // Удаляем объект
+    //LM_Data.legendContainer.prepend(SEARCH_HTML); // добавляем HTML в начало объекта
     LM_Data.legendContainer.wrap('<div id="LeftMenuBox"></div>');
     LM_Data.leftMenuContainer = LM_Data.legendContainer.parent();
     LM_Data.leftMenuContainer.prepend('<div class="left-menu-controls"><a href="#" data-event="legend-switch">&gt;</a></div>');
