@@ -282,7 +282,7 @@ body{
 .leaflet-bar a,
 .leaflet-bar a:hover {
 	background-color: #222222;
-	border-bottom: 0px solid #cacaca;
+	border-bottom: 0px solid #222222;
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
@@ -298,8 +298,8 @@ body{
 	display: block;
 	}
 .leaflet-bar a:hover {
-	background-color: #cacaca;
-	color: #443A3A;
+	background-color: #222222;
+	color: #222222;
 	}
 .leaflet-bar a:first-child {
 	border-top-left-radius: 0px;
@@ -312,14 +312,14 @@ body{
 	}
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
-	background-color: #cacaca;
-	color: #443A3A;
+	background-color: #222222;
+	color: white;
 	}
 
 .leaflet-touch .leaflet-bar a {
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 	}
 .leaflet-touch .leaflet-bar a:first-child {
 	border-top-left-radius: 0px;
@@ -347,7 +347,7 @@ body{
 
 .leaflet-control-layers {
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #443A3A;
+	background: #222222;
 	border-radius: 0px;
 	}
 .leaflet-control-layers-toggle {
@@ -360,8 +360,8 @@ body{
 	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
@@ -374,7 +374,7 @@ body{
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
 	color: white;
-	background: #443A3A;
+	background: #222222;
 	}
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
@@ -411,7 +411,7 @@ body{
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
 	padding: 0 5px;
-	color: #333;
+	color: white;
 	}
 .leaflet-control-attribution a {
 	text-decoration: none;
@@ -430,7 +430,7 @@ body{
 	margin-bottom: 5px;
 	}
 .leaflet-control-scale-line {
-	border: 2px solid #777;
+	border: 0px solid #222222;
 	border-top: none;
 	line-height: 1.1;
 	padding: 2px 5px 1px;
@@ -441,15 +441,15 @@ body{
 	     box-sizing: border-box;
 
 	background: #fff;
-	background: rgba(255, 255, 255, 0.5);
+	background: #222222;
 	}
 .leaflet-control-scale-line:not(:first-child) {
-	border-top: 2px solid #777;
+	border-top: 1px solid white;
 	border-bottom: none;
 	margin-top: -2px;
 	}
 .leaflet-control-scale-line:not(:first-child):not(:last-child) {
-	border-bottom: 2px solid #777;
+	border-bottom: 2px solid white;
 	}
 
 .leaflet-touch .leaflet-control-attribution,
@@ -505,7 +505,7 @@ body{
 	}
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-	background: #443A3A;
+	background: #222222;
 	color: white;
 	width: 290px;
 	height: 110px;
@@ -662,7 +662,7 @@ body{
 #LeftMenuBox .left-menu-controls {
 	float: left;
 	height: 100%;
-	background-color: #443A3A;
+	background-color: #222222;
 	z-index: 1001;
 	position: relative;
 }
