@@ -141,13 +141,13 @@ h2 {
   }
 }
 .icon {
-  max-width: 70%;
-  max-height: 70%;
-  margin: 7px 4px;
+  max-width: 55%;
+  max-height: 55%;
+  margin: 12px 0px;
 }
 
 #map {
-  height: 50%;
+  height: 100%;
   width: 100%;
 }
 .help {

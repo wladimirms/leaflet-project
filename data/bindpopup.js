@@ -2,10 +2,10 @@
         options: {
         shadowUrl: 'data/images/marker-shadow.png',
         iconSize:     [20, 33],
-        shadowSize:   [20, 33],
-        iconAnchor:   [10, 34],
-        shadowAnchor: [4, 32],
-        popupAnchor:  [-0, -22]
+        shadowSize:   [30, 33],
+        iconAnchor:   [10, 33],
+        shadowAnchor: [10, 33],
+        popupAnchor:  [-0, -0]
         }
     });
 

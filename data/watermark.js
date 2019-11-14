@@ -1,4 +1,4 @@
-    L.Control.Watermark = L.Control.extend({
+//L.Control.Watermark = L.Control.extend({
 		onAdd: function(map) {
 			var img = L.DomUtil.create('img');
 			

@@ -1,47 +1,68 @@
 
+var geojson, grrtest = L.layerGroup(),
+    geojson = L.geoJson(grr, {
+    style: style,
+    onEachFeature: onEachFeature
+    }).addTo(grrtest),
+    geojsonsecond;
 
-var geojson;
+var grrsecondtest = L.layerGroup(),
+    geojsonsecond = L.geoJson(grreighten, {
+        style: style,
+        onEachFeature: onEachFeature
+        }).addTo(grrsecondtest);
 
-var grrtest = L.layerGroup();
+var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
+    mbAttr2 = '&copy; <a href=" https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО',
+    ESRIAttr = '',
+    OSMAttr = '&copy; <a href=" https://www.openstreetmap.org/"> OpenStreetMap</a> contributors, ' +
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    YaAttr = ' Нельзя использовать',
+    GoAttr = ' Нельзя использовать',
+    OTMAttr = ' © OpenStreetMap contributors, SRTM | map style: © OpenTopoMap (CC-BY-SA)',
+    DarkAttr = ' © OpenStreetMap contributors © CARTO, © CARTO';
 
-geojson = L.geoJson(grr, {style: style, onEachFeature: onEachFeature}).addTo(grrtest);
+    mbUrlOSM = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    mbUrlESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+    mbUrlYa = 'http://sat04.maps.yandex.net/tiles?l=sat&x={x}&y={y}&z={z}';
+    mbUrlGo = 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}';
+    mbUrlDark = 'http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png';
+    mbUrlOTM = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
+    mbUrlCadastre = 'https://pkk5.rosreestr.ru:443/arcgis/services/Cadastre/CadastreWMS/MapServer/WmsServer';
+    mbUrlBase = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/BaseMap/MapServer/tile/{z}/{y}/{x}';
+    mbUrlAnno = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/Anno/MapServer/tile/{z}/{y}/{x}';
 
-var geojsonsecond;
+var OpenStreetMap = L.tileLayer(mbUrlOSM, {attribution: OSMAttr}),
+    RosreestrBase = L.tileLayer(mbUrlBase, {attribution: mbAttr}),
+    RosreestrAnno = L.tileLayer(mbUrlAnno, {attribution: mbAttr2}),
+    RosreestrCadastre = L.tileLayer(mbUrlCadastre, {attribution: mbAttr}),
+    OpenTopoMap = L.tileLayer(mbUrlOTM, {attribution: OTMAttr}),
+    CartoDBDark = L.tileLayer(mbUrlDark, {attribution: DarkAttr}),
+    ESRISat = L.tileLayer(mbUrlESRI, {attribution: ESRIAttr}),
+    Sattelite = L.tileLayer(mbUrlYa, {attribution: YaAttr}),
+    GoogleHybrid = L.tileLayer(mbUrlGo, {attribution: GoAttr});
 
-var grrsecondtest = L.layerGroup();
-
-geojsonsecond = L.geoJson(grreighten, {style: style, onEachFeature: onEachFeature}).addTo(grrsecondtest);
-
-var mbAttr = 'Developed by TsNIGRI Department of GIS - ' +
-    'Map data &copy; <a href="https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО';
-var secAttr = '&copy; <a href="https://www.openstreetmap.org/"> OpenStreetMap</a> contributors, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
-var thrdAttr = ' Imagery &copy; <a href="https://www.esri.com/ru-ru/home">ESRI</a>, DigitalGlobe, GeoEye, i-cubed, USDA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, swisstopo, and the GIS User Community';
-
-mbUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-mbUrlx = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png';
-
-mbUrlr = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/BaseMap/MapServer/tile/{z}/{y}/{x}';
-
-mbUrla = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/Anno/MapServer/tile/{z}/{y}/{x}';
-
-var OpenStreetMap = L.tileLayer(mbUrl, {id: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', attribution: secAttr}),
-    Sattelite = L.tileLayer(mbUrlx, {attribution: thrdAttr}),
-    RosreestrBase = L.tileLayer(mbUrlr, {attribution: mbAttr}),
-    RosreestrAnno = L.tileLayer(mbUrla, {attribution: mbAttr});
+var wmsBaseLayer = L.tileLayer.wms("http://192.168.44.217:8080/geoserver/TOP/wms", {
+    layers: 'TOP:adm_rfborders, TOP:adm_federalsubject',
+    format: 'image/png',
+    transparent: true,
+    version: "1.1.0",
+    attribution: ""
+});
 
 var map = L.map('map', {
     zoomControl: false,
+    measureControl: false,
     center: [66.25, 94.15],
     zoom: 3,
     minZoom: 3,
     fullscreenControl: true,
-    fullscreenControlOptions: { // optional
+    fullscreenControlOptions: {
+        // optional
         title: "На весь экран",
         titleCancel: "Выйти из полноэкранного режима",
     },
-    layers: [RosreestrBase, RosreestrAnno, grrsecondtest]
+    layers: [RosreestrBase, wmsBaseLayer, RosreestrAnno, grrsecondtest]
 });
 
 var osmGeocoder = new L.Control.OSMGeocoder({
@@ -70,14 +91,21 @@ var style = {
     clickable: false
 };
 
-var baseLayers = {};
+var baseLayers = {
+
+};
 
 var overlays = {
-    "Карта OpenStreetMap": OpenStreetMap,
-    "Космические снимки ESRI": Sattelite,
+    "OpenStreetMap": OpenStreetMap,
+    "OpenTopoMap": OpenTopoMap,
+    "CartoDB Dark Matter": CartoDBDark,
+    "ESRI Imagery": ESRISat,
+    //ndex sattelite": Sattelite,
+    "Google Hybrid": GoogleHybrid,
+    "Публичная кадастровая карта": RosreestrCadastre,
     "Объекты ГРР за 2018 год": grrsecondtest,
     "Объекты ГРР за 2017 год": grrtest,
-    "Границы субъектов РФ": federalsubjects
+
 };
 
     L.control.layers(baseLayers, overlays, {
@@ -106,7 +134,8 @@ var control;
 
 var L = window.L;
 
-    L.Control.FileLayerLoad.LABEL = '<img class="icon" src="data/images/folder.png" alt="file icon"/>';
+    L.Control.FileLayerLoad.LABEL =
+        '<img class="icon" src="data/images/folder.png" alt="file icon"/>';
     control = L.Control.fileLayerLoad({
         position: 'topright',
         fitBounds: true,
@@ -126,6 +155,20 @@ var L = window.L;
         console.log(layer);
     });
 
+    L.Control.measureControl().addTo(map);
+
+var printProvider = L.print.provider({
+    method: 'GET',
+    url: ' http://path/to/mapfish/print',
+    autoLoad: true,
+    dpi: 90
+});
+
+var printControl = L.control.print({
+    provider: printProvider
+});
+    map.addControl(printControl);
+
 var ZoomViewer = L.Control.extend({
     onAdd: function(){
         var gauge = L.DomUtil.create('div');
@@ -139,8 +182,28 @@ var ZoomViewer = L.Control.extend({
         return gauge;
     }
 });
-
     (new ZoomViewer).addTo(map);
+
+//  $.jax({url:'parser.php',
+//      success: function (response) {
+//          grrFeatures.log(JSON.parse(response));
+//          lyrGrrStyles = L.geoJSON(grrFeatures,
+//              {
+//                  pointToLayer: returnGrrMarker,
+//                  filter: filterGrr
+//              }).addTo(map);
+//          arGrrIDs.sort(function (a,b){
+//              return a-b
+//          });
+//          $("#txtFindGrr").autocomplete({
+//              source:arGrrIDs
+//          });
+//      },
+//      error: function (xhr, status, error){
+//          alert("ERROR: "+error);
+//      }
+//  });
+
     
 
 

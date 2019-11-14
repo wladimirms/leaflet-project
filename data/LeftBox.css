@@ -1,3 +1,10 @@
+#logo {
+    display: block;
+    width: 150px;
+    margin-top: -30px;
+    margin-left: 50px;
+}
+
 #leftbox {
     padding-left: 10px;
     padding-top: 10px;
@@ -8,12 +15,13 @@
 }
 
 #leftbox > *{
-    width: 380px;
+    width: 430px;
     overflow: hidden;
     min-height: 30px;
 }
 
 #leftbox .leftbox-header{
+    background-image: url("images/banner_top.png");
     background-color: #222222;
     height: 60px;
 }
@@ -30,7 +38,7 @@
 
 #leftbox .leftbox-ad{
     background-color: #222222;
-    height: 90px;
+    height: 150px;
 }
 
 #leftbox .leftbox-header > span{
@@ -83,8 +91,9 @@
     color: white;
     display: inline-block;
     margin-top: 5px;
-    margin-left: 48px;
-    margin-right: 6%;
+    margin-left: 56px;
+    margin-right: 7%;
     font-size: 14px;
     text-decoration: none;
 }
+
