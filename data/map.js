@@ -65,6 +65,11 @@ var map = L.map('map', {
     layers: [RosreestrBase, wmsBaseLayer, RosreestrAnno, grrsecondtest]
 });
 
+var options = {
+    geojsonServiceAddress: "data/grrdata.json"
+};
+$("#searchContainer").GeoJsonAutocomplete(options);
+
 var osmGeocoder = new L.Control.OSMGeocoder({
     placeholder: 'Перейти к объекту',
     position: 'topright',
