@@ -5,6 +5,12 @@
     margin-left: 50px;
 }
 
+#ad {
+    display: block;
+    margin-top: 35px;
+    margin-left: 10px;
+}
+
 #leftbox {
     padding-left: 10px;
     padding-top: 10px;

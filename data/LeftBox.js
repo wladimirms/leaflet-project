@@ -7,7 +7,7 @@ var LeftBoxCreateInterface = function () {
         .append('<div class="leftbox-header"></div>')
         .append('<div class="leftbox-nav"></div>')
         .append('<div class="leftbox-content"></div>')
-        .append('<div class="leftbox-ad"></div>')
+        .append('<div class="leftbox-ad"><img src="data/images/banner_ad.png" id="ad"> </div>')
     ;
     LeftBoxData.object.find(".leftbox-header")
         .append('<a href="#" id="leftboxSign">Войти</a>')
