@@ -40,11 +40,13 @@ L.Control.OSMGeocoder = L.Control.extend({
 		var form = this._form = L.DomUtil.create('form', className + '-form');
 
 		var input = this._input = document.createElement('input');
-		input.type = "text";
+		input.type = "text"
+		input.style = "background-color: #222; " + "height: 40px;" + "border:none;"
 		input.placeholder = this.options.placeholder || '';
 
 		var submit = document.createElement('input');
 		submit.type = "submit";
+		submit.style = "background-color: #222;"  + "height: 40px;" + "color: gray;" + "border:none;"
 		submit.value = this.options.text;
 
 		form.appendChild(input);

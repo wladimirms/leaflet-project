@@ -51,6 +51,7 @@ var wmsBaseLayer = L.tileLayer.wms("http://192.168.44.217:8080/geoserver/TOP/wms
 });
 
 var map = L.map('map', {
+    attributionControl: false,
     zoomControl: false,
     measureControl: false,
     center: [66.25, 94.15],
@@ -65,10 +66,12 @@ var map = L.map('map', {
     layers: [RosreestrBase, wmsBaseLayer, RosreestrAnno, grrsecondtest]
 });
 
+L.control.attribution({position: 'bottomleft'}).addTo(map);
+
 var options = {
     geojsonServiceAddress: "data/grrdata.json"
-};
-$("#searchContainer").GeoJsonAutocomplete(options);
+    };
+    $("#searchContainer").GeoJsonAutocomplete(options);
 
 var osmGeocoder = new L.Control.OSMGeocoder({
     placeholder: 'Перейти к объекту',
@@ -77,7 +80,7 @@ var osmGeocoder = new L.Control.OSMGeocoder({
 
     map.addControl(osmGeocoder);
 
-var scale = L.control.scale( {
+var scale = L.control.scale({
     position: 'bottomright',
     imperial: false,
     }).addTo(map);
@@ -96,16 +99,14 @@ var style = {
     clickable: false
 };
 
-var baseLayers = {
-
-};
+var baseLayers = {};
 
 var overlays = {
     "OpenStreetMap": OpenStreetMap,
     "OpenTopoMap": OpenTopoMap,
     "CartoDB Dark Matter": CartoDBDark,
     "ESRI Imagery": ESRISat,
-    //ndex sattelite": Sattelite,
+    //Yandex sattelite": Sattelite,
     "Google Hybrid": GoogleHybrid,
     "Публичная кадастровая карта": RosreestrCadastre,
     "Объекты ГРР за 2018 год": grrsecondtest,
@@ -185,7 +186,7 @@ var ZoomViewer = L.Control.extend({
             gauge.innerHTML = 'Zoom: ' + map.getZoom();
         })
         return gauge;
-    }
+    },
 });
     (new ZoomViewer).addTo(map);
 

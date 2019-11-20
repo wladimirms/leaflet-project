@@ -1,10 +1,11 @@
 .fullscreen-icon {
     background-image: url(images/icon-fullscreen.png);
+    margin-bottom: -10px;
 }
 
 .leaflet-retina .fullscreen-icon {
     background-image: url(images/icon-fullscreen.png);
-    background-size: 36px 36px;
+    background-size: 32px 32px;
 }
 /* one selector per rule as explained here : http://www.sitepoint.com/html5-full-screen-api/ */
 .leaflet-container:-webkit-full-screen {
