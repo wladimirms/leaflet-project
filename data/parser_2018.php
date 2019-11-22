@@ -6,11 +6,18 @@
         PDO::ATTR_EMULATE_PREPARES => false
     ];
     $pdo = new PDO($dsn, 'pguser', '123456', $opt);
-    $result = $pdo->query("SELECT *, ST_AsGeoJSON(geom, 5) AS geojson FROM grractive_2017");
+
+    $result = $pdo->query("SELECT *, ST_AsGeoJSON(geom, 5) AS geojson FROM grractive_2018");
+    $features = [];
     foreach ($result AS $row) {
         unset($row['geom']);
         $geometry=$row['geojson']=json_decode($row['geojson']);
         unset($row['geojson']);
         $feature=["type"=>"Feature", "geometry"=>$geometry, "properties"=>$row];
-        echo json_encode($feature)."<br><br>";
+        //echo json_encode($feature)."<br><br>";
+        array_push($features, $feature);
     }
+    $featureCollection = ["type"=>"FeatureCollection", "features"=>$features];
+    //$featureCollectionEncode = iconv('UTF-8', 'UTF-8//IGNORE', $featureCollection);
+    echo json_encode($featureCollection);
+?>

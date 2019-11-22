@@ -1,4 +1,5 @@
-  function getColor(d) {
+
+    function getColor(d) {
     return d === 'АБЦМ'                     ? '#b18bc4' :
            d === 'Золото'                   ? '#fec44f' :
            d === 'Золото + полиметаллы'     ? '#fff7bc' :
@@ -57,11 +58,17 @@
 
 	}
 
-
 	function onEachFeature(feature, layer) {
+        layer.bindPopup("<h2>" + feature.properties.name + "</h2><br><b>Субъект РФ: </b>" +
+            feature.properties.subject + "<br><br><b>ПИ: </b>" + feature.properties.density + "<br><br><b>Исполнитель: </b>" +
+            feature.properties.org + "<br><br><b>Начало / окончание работ: </b>" + feature.properties.time + "<br><br><b>Лицензия №: </b>" +
+            feature.properties.license + "<br><br><b>Тип: </b>" + feature.properties.typ + "<br><br><b>Заказчик: </b>" +
+            feature.properties.pref
+        );
 		layer.on({
             click: getFeature,
             mouseout: resetHighlight,
 			mouseover: highlightFeature
+
 		});
 	}

@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +25,7 @@
     <link rel="stylesheet" href="data/LeftBox.css"/>
     <link rel="stylesheet" href="data/leafletdraw/src/leaflet.draw.css"/>
     <link rel="stylesheet" href="data/leafletmeasure/leaflet.measurecontrol.css"/>
+    <link rel="stylesheet" href="data/search/src/geojsonautocomplete.css"/>
     <!--<link rel="stylesheet" href="data/measure/scss/leaflet-measure.scss"/>-->
     <script src="data/jquery.js"></script>
     <!--<script src="data/jquery-addon.js"></script>-->
@@ -35,6 +35,8 @@
     <script src="data/leaflet.filelayer.js"></script>
     <script src="data/grrdata.js"></script>
     <script src="data/grrseconddata.js"></script>
+    <script src="data/grractive_centroid_2018.js"></script>
+    <script src="data/grractive_centroid_2017.js"></script>
     <script src="data/Control.FullScreen.js"></script>
     <script src="data/leafletdraw/src/Leaflet.draw.js"></script>
     <script src="data/leafletdraw/src/Leaflet.Draw.Event.js"></script>
@@ -69,10 +71,14 @@
     <script src="data/leafletprint/src/Control.Print.js"></script>
     <script src="data/leafletprint/src/copyright.js"></script>
     <script src="data/leafletprint/src/print.Provider.js"></script>
+    <script src="data/search/src/geojsonautocomplete.js"></script>
 </head>
 <body>
 <div id='map'>
 </div>
+<div id='searchContainer' style="position: fixed;">
+</div>
+<script src="data/parser_2017.php"></script>
 <!--<script src="data/geoserver.js"></script>-->
 <script src="data/functions.js"></script>
 <script src="data/map.js"></script>
@@ -80,9 +86,10 @@
 <script src="data/control.js"></script>
 <!--<script src="data/legend.js"></script>-->
 <script src="data/info.js"></script>
-<script src="data/bindpopup.js"></script>
+<!--<script src="data/bindpopup.js"></script>-->
 <!--<script src="data/watermark.js"></script>-->
 <script src="data/LeftBox.js"></script>
+<script src="data/parser_test.php"></script>
 <!--<script src="data/left-menu.js"></script>-->
 </body>
 </html>

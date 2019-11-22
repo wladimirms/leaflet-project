@@ -507,8 +507,8 @@ body{
 .leaflet-popup-tip {
 	background: #222222;
 	color: white;
-	width: 290px;
-	height: 110px;
+	width: auto;
+	height: auto;
 	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
 	}
 .leaflet-container a.leaflet-popup-close-button {

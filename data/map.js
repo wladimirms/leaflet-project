@@ -1,16 +1,24 @@
-
 var geojson, grrtest = L.layerGroup(),
     geojson = L.geoJson(grr, {
-    style: style,
-    onEachFeature: onEachFeature
-    }).addTo(grrtest),
-    geojsonsecond;
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(grrtest);
 
-var grrsecondtest = L.layerGroup(),
+var geojsonsecond, grrsecondtest = L.layerGroup(),
     geojsonsecond = L.geoJson(grreighten, {
         style: style,
         onEachFeature: onEachFeature
-        }).addTo(grrsecondtest);
+    }).addTo(grrsecondtest);
+
+var popup2017, popupJson2017 = L.layerGroup(),
+    popupJson2017= L.geoJson(popupCentroids2017, {
+        onEachFeature: onEachFeature
+    }).addTo(grrtest);
+
+var popup2018, popupJson2018 = L.layerGroup(),
+    popupJson2018= L.geoJson(popupCentroids2018, {
+        onEachFeature: onEachFeature
+    }).addTo(grrsecondtest);
 
 var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
     mbAttr2 = '&copy; <a href=" https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО',
@@ -136,10 +144,7 @@ var drawControl = new L.Control.Draw({
     });
     map.addControl(drawControl);
 
-var control;
-
-var L = window.L;
-
+var control; L = window.L;
     L.Control.FileLayerLoad.LABEL =
         '<img class="icon" src="data/images/folder.png" alt="file icon"/>';
     control = L.Control.fileLayerLoad({
@@ -190,25 +195,15 @@ var ZoomViewer = L.Control.extend({
 });
     (new ZoomViewer).addTo(map);
 
-//  $.jax({url:'parser.php',
-//      success: function (response) {
-//          grrFeatures.log(JSON.parse(response));
-//          lyrGrrStyles = L.geoJSON(grrFeatures,
-//              {
-//                  pointToLayer: returnGrrMarker,
-//                  filter: filterGrr
-//              }).addTo(map);
-//          arGrrIDs.sort(function (a,b){
-//              return a-b
-//          });
-//          $("#txtFindGrr").autocomplete({
-//              source:arGrrIDs
-//          });
-//      },
-//      error: function (xhr, status, error){
-//          alert("ERROR: "+error);
-//      }
-//  });
+    $.ajax({url:'data/parser_2017.php',
+        success: function (response){
+                alert(response);
+                console.log(JSON.parse(response));
+            },
+        error: function (xhr, status, error){
+             alert("ERROR: "+error);
+            }
+    });
 
     
 
