@@ -195,15 +195,6 @@ var ZoomViewer = L.Control.extend({
 });
     (new ZoomViewer).addTo(map);
 
-    $.ajax({url:'data/parser_2017.php',
-        success: function (response){
-                alert(response);
-                console.log(JSON.parse(response));
-            },
-        error: function (xhr, status, error){
-             alert("ERROR: "+error);
-            }
-    });
 
     
 

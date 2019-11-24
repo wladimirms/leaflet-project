@@ -317,9 +317,9 @@ body{
 	}
 
 .leaflet-touch .leaflet-bar a {
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
+	width: 37px;
+	height: 37px;
+	line-height: 37px;
 	}
 .leaflet-touch .leaflet-bar a:first-child {
 	border-top-left-radius: 0px;
@@ -360,8 +360,8 @@ body{
 	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 40px;
-	height: 40px;
+	width: 37px;
+	height: 37px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {

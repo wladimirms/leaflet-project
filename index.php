@@ -34,8 +34,9 @@
     <script src="data/togeojson.js"></script>
     <script src="data/leaflet.filelayer.js"></script>
     <script src="data/grrdata.js"></script>
-    <script src="data/grrseconddata.js"></script>
-    <script src="data/grractive_centroid_2018.js"></script>
+    <script src="data/parser_2018.php"></script>
+    <!--script src="data/grrseconddata.js"></script-->
+    <!--<script src="data/grractive_centroid_2018.js"></script>-->
     <script src="data/grractive_centroid_2017.js"></script>
     <script src="data/Control.FullScreen.js"></script>
     <script src="data/leafletdraw/src/Leaflet.draw.js"></script>
@@ -78,7 +79,6 @@
 </div>
 <div id='searchContainer' style="position: fixed;">
 </div>
-<script src="data/parser_2017.php"></script>
 <!--<script src="data/geoserver.js"></script>-->
 <script src="data/functions.js"></script>
 <script src="data/map.js"></script>
