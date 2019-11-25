@@ -1,24 +1,48 @@
-var geojson, grrtest = L.layerGroup(),
-    geojson = L.geoJson(grr, {
+
+var LeafIcon = L.Icon.extend({
+    options: {
+        shadowUrl: 'data/images/marker-shadow.png',
+        iconSize:     [20, 33],
+        shadowSize:   [30, 33],
+        iconAnchor:   [10, 33],
+        shadowAnchor: [10, 33],
+        popupAnchor:  [-0, -0]
+        }
+    });
+
+var orangeIcon = new LeafIcon({iconUrl: 'data/images/orangeicon.png'}),
+    redIcon = new LeafIcon({iconUrl: 'data/images/redicon.png'}),
+    greenIcon = new LeafIcon({iconUrl: 'data/images/greenicon.png'}),
+    brownIcon = new LeafIcon({iconUrl: 'data/images/brownicon.png'}),
+    blueIcon = new LeafIcon({iconUrl: 'data/images/blueicon.png'}),
+    yellowIcon = new LeafIcon({iconUrl: 'data/images/yellowicon.png'}),
+    greyIcon = new LeafIcon({iconUrl: 'data/images/greyicon.png'}),
+    pinkIcon = new LeafIcon({iconUrl: 'data/images/pinkicon.png'}),
+    lightorangeIcon = new LeafIcon({iconUrl: 'data/images/lightorangeicon.png'});
+
+    L.icon = function (options) {return new L.Icon(options);};
+
+var geojson2017, grr2017 = L.layerGroup(),
+    geojson2017 = L.geoJson(grr, {
         style: style,
         onEachFeature: onEachFeature
-    }).addTo(grrtest);
+    }).addTo(grr2017),
 
-var geojsonsecond, grrsecondtest = L.layerGroup(),
-    geojsonsecond = L.geoJson(grreighten, {
+    geojson2018, grr2018 = L.layerGroup(),
+    geojson2018 = L.geoJson(grrpolygon2018, {
         style: style,
         onEachFeature: onEachFeature
-    }).addTo(grrsecondtest);
+    }).addTo(grr2018),
 
-var popup2017, popupJson2017 = L.layerGroup(),
+    popup2017, popupJson2017 = L.layerGroup(),
     popupJson2017= L.geoJson(popupCentroids2017, {
         onEachFeature: onEachFeature
-    }).addTo(grrtest);
+    }).addTo(grr2017),
 
-var popup2018, popupJson2018 = L.layerGroup(),
+    popup2018, popupJson2018 = L.layerGroup(),
     popupJson2018= L.geoJson(popupCentroids2018, {
         onEachFeature: onEachFeature
-    }).addTo(grrsecondtest);
+    }).addTo(grr2018);
 
 var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
     mbAttr2 = '&copy; <a href=" https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО',
@@ -71,7 +95,7 @@ var map = L.map('map', {
         title: "На весь экран",
         titleCancel: "Выйти из полноэкранного режима",
     },
-    layers: [RosreestrBase, wmsBaseLayer, RosreestrAnno, grrsecondtest]
+    layers: [RosreestrBase, wmsBaseLayer, RosreestrAnno, grr2018]
 });
 
 L.control.attribution({position: 'bottomleft'}).addTo(map);
@@ -117,8 +141,8 @@ var overlays = {
     //Yandex sattelite": Sattelite,
     "Google Hybrid": GoogleHybrid,
     "Публичная кадастровая карта": RosreestrCadastre,
-    "Объекты ГРР за 2018 год": grrsecondtest,
-    "Объекты ГРР за 2017 год": grrtest,
+    "Объекты ГРР за 2018 год": grr2018,
+    "Объекты ГРР за 2017 год": grr2017,
 
 };
 

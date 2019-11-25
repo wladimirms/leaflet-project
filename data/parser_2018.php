@@ -1,5 +1,5 @@
 <?php
-$dsn = "pgsql:host=192.168.43.76;dbname=msb;port=5432";
+$dsn = "pgsql:host=192.168.44.217;dbname=msb;port=5432";
 $opt = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -8,7 +8,15 @@ $opt = [
 $pdo = new PDO($dsn, 'pguser', '123456', $opt);
 
 $tables = [
-    'grreighten' => [
+    'grrpolygon2017' => [
+        'table' => 'grractive_2017',
+        'parser' => 'default'
+    ],
+    'popupCentroids2017' => [
+        'table' => 'grractive_centroid_2017',
+        'parser' => 'default'
+    ],
+    'grrpolygon2018' => [
         'table' => 'grractive_2018',
         'parser' => 'default'
     ],
@@ -33,6 +41,7 @@ foreach ($tables as $jsVar => $pgsTable) {
                 $feature = ["type" => "Feature", "geometry" => $geometry, "properties" => $row];
                 //echo json_encode($feature)."<br><br>";
                 array_push($features, $feature);
+
             }
             $featureCollection = ["type" => "FeatureCollection", "features" => $features];
             break;

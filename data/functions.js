@@ -12,15 +12,16 @@
                                          '#ffffff';
     }
 
-  function style(feature) {
-    return {
-        fillColor: getColor(feature.properties.density),
-        weight: 0.5,
-        opacity: 1,
-        color: 'black',
-        fillOpacity: 0.5
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.density),
+            weight: 0.5,
+            opacity: 1,
+            color: 'black',
+            fillOpacity: 0.5,
         };
     }
+
 
   function highlightFeature(e) {
 		var layer = e.target;
