@@ -5,7 +5,7 @@
 
 .searchContainer {
     position: relative;
-    top:660px;
+    _top:660px;
     left:10px;
     z-index: 1001;
     width: 300px;
@@ -73,6 +73,8 @@
 }
 
 .result {
+    overflow-y: auto;
+    height: 300px;
     position: absolute;
     background-color: white;
     width: 399px; //1 pixel less than search container beacause of border
@@ -125,7 +127,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: 38px;
-    width: 399px; //1 pixel less than search container beacause of border
+    width: 374px; //1 pixel less than search container beacause of border
     line-height:38px;
 }
 

@@ -77,8 +77,7 @@
 <body>
 <div id='map'>
 </div>
-<div id='searchContainer' style="position: fixed;">
-</div>
+
 <!--<script src="data/geoserver.js"></script>-->
 <script src="data/functions.js"></script>
 <script src="data/map.js"></script>

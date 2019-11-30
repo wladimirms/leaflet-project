@@ -6,7 +6,7 @@
 (function ($) {
 
     var options = {
-        geojsonServiceAddress: "http://yourGeoJsonSearchAddress",
+        geojsonServiceAddress: "/data/parser_2018.php?type=service",
         placeholderMessage: "Поиск по объектам ГРР...",
         searchButtonTitle: "Поиск",
         clearButtonTitle: "Очистить",

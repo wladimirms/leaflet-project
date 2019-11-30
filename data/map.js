@@ -100,11 +100,7 @@ var map = L.map('map', {
 
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
-var options = {
-    geojsonServiceAddress: "data/grrdata.json"
-    };
-    $("#searchContainer").GeoJsonAutocomplete(options);
-
+//geocoder
 var osmGeocoder = new L.Control.OSMGeocoder({
     placeholder: 'Перейти к объекту',
     position: 'topright',
@@ -112,17 +108,19 @@ var osmGeocoder = new L.Control.OSMGeocoder({
 
     map.addControl(osmGeocoder);
 
+//scale
 var scale = L.control.scale({
     position: 'bottomright',
     imperial: false,
     }).addTo(map);
 
-
+//zoom
 var zoomControl = L.control.zoom({
     position: 'bottomright'
     });
     map.addControl(zoomControl);
 
+//kmlgpx
 var style = {
     color: 'red',
     opacity: 1.0,
