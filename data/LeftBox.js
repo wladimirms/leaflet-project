@@ -22,7 +22,7 @@ var LeftBoxCreateInterface = function () {
     ;
     LeftBoxData.object.find(".leftbox-header")
         .append('<a href="#" id="leftboxSign">Войти</a>')
-        .append('<a href="#" id="leftboxMenu">&lt;</a>')
+        .append('<button id="leftboxMenu">&lt;</button>')
         .append('<a href="#" id="leftboxLogo"><img src="data/images/tsnigri.png" id="logo"></a>')
         .append('<span id="leftboxUser">Иван Петров</span>')
     ;
@@ -39,4 +39,5 @@ $(document).ready(function () {
     LeftBoxData.object = $("#leftbox");
     LeftBoxCreateInterface();
 })
+
 

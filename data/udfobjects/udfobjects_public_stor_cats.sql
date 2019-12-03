@@ -1,0 +1,1 @@
+INSERT INTO public.stor_cats (id, full_name, short_name, link_address, description) VALUES (1, 'aaa', 'aaa', null, null);

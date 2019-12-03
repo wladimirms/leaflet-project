@@ -25,7 +25,6 @@ var funcLM_Init = function () {
         "margin-left": LM_Data.minMarging + "px",
     });
 }
-
 var funcLM_Switch = function (OPEN, CallBack) {
     LM_Data.animationAction = true;
     if (OPEN) { // если передана команда на открытие
@@ -48,6 +47,7 @@ var funcLM_Switch = function (OPEN, CallBack) {
         });
     }
 }
+
 
 $(document)
     .on('click', '[data-event="legend-switch"]', function () {

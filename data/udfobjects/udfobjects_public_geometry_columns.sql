@@ -1,0 +1,11 @@
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'county', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'state', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'place', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'cousub', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'edges', 'the_geom', 2, 4269, 'MULTILINESTRING');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'addrfeat', 'the_geom', 2, 4269, 'LINESTRING');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'faces', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'zcta5', 'the_geom', 2, 4269, 'GEOMETRY');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'tract', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'tabblock', 'the_geom', 2, 4269, 'MULTIPOLYGON');
+INSERT INTO public.geometry_columns (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, type) VALUES ('udfobjects', 'tiger', 'bg', 'the_geom', 2, 4269, 'MULTIPOLYGON');

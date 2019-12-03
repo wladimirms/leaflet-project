@@ -49,14 +49,14 @@ var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
     ESRIAttr = '',
     OSMAttr = '&copy; <a href=" https://www.openstreetmap.org/"> OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    YaAttr = ' Нельзя использовать',
-    GoAttr = ' Нельзя использовать',
+    BingAttr = '',
+    GoAttr = '',
     OTMAttr = ' © OpenStreetMap contributors, SRTM | map style: © OpenTopoMap (CC-BY-SA)',
     DarkAttr = ' © OpenStreetMap contributors © CARTO, © CARTO';
 
     mbUrlOSM = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     mbUrlESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
-    mbUrlYa = 'http://sat04.maps.yandex.net/tiles?l=sat&x={x}&y={y}&z={z}';
+    mbUrlBing = 'http://ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=0&dir=dir_n\'';
     mbUrlGo = 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}';
     mbUrlDark = 'http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png';
     mbUrlOTM = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
@@ -71,7 +71,7 @@ var OpenStreetMap = L.tileLayer(mbUrlOSM, {attribution: OSMAttr}),
     OpenTopoMap = L.tileLayer(mbUrlOTM, {attribution: OTMAttr}),
     CartoDBDark = L.tileLayer(mbUrlDark, {attribution: DarkAttr}),
     ESRISat = L.tileLayer(mbUrlESRI, {attribution: ESRIAttr}),
-    Sattelite = L.tileLayer(mbUrlYa, {attribution: YaAttr}),
+    Sattelite = L.tileLayer(mbUrlBing, {attribution: BingAttr}),
     GoogleHybrid = L.tileLayer(mbUrlGo, {attribution: GoAttr});
 
 var wmsBaseLayer = L.tileLayer.wms("http://192.168.44.217:8080/geoserver/TOP/wms", {
@@ -99,6 +99,9 @@ var map = L.map('map', {
 });
 
 L.control.attribution({position: 'bottomleft'}).addTo(map);
+
+//mouse
+L.control.mousePosition().addTo(map);
 
 //geocoder
 var osmGeocoder = new L.Control.OSMGeocoder({
@@ -136,7 +139,7 @@ var overlays = {
     "OpenTopoMap": OpenTopoMap,
     "CartoDB Dark Matter": CartoDBDark,
     "ESRI Imagery": ESRISat,
-    //Yandex sattelite": Sattelite,
+    "Bing Aerial": Sattelite,
     "Google Hybrid": GoogleHybrid,
     "Публичная кадастровая карта": RosreestrCadastre,
     "Объекты ГРР за 2018 год": grr2018,
@@ -149,6 +152,7 @@ var overlays = {
         collapsed: true
     }).addTo(map);
 
+//draw
 var drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
 var drawControl = new L.Control.Draw({
@@ -166,6 +170,7 @@ var drawControl = new L.Control.Draw({
     });
     map.addControl(drawControl);
 
+//kmlgpx
 var control; L = window.L;
     L.Control.FileLayerLoad.LABEL =
         '<img class="icon" src="data/images/folder.png" alt="file icon"/>';
@@ -190,6 +195,7 @@ var control; L = window.L;
 
     L.Control.measureControl().addTo(map);
 
+//print
 var printProvider = L.print.provider({
     method: 'GET',
     url: ' http://path/to/mapfish/print',
@@ -202,20 +208,6 @@ var printControl = L.control.print({
 });
     map.addControl(printControl);
 
-var ZoomViewer = L.Control.extend({
-    onAdd: function(){
-        var gauge = L.DomUtil.create('div');
-        gauge.style.width = '55px';
-        gauge.style.background = '#222222';
-        gauge.style.textAlign = 'center';
-        gauge.style.color = 'white';
-        map.on('zoomstart zoom zoomend', function(ev){
-            gauge.innerHTML = 'Zoom: ' + map.getZoom();
-        })
-        return gauge;
-    },
-});
-    (new ZoomViewer).addTo(map);
 
 
     

@@ -39,12 +39,13 @@
 	display: block;
 	position: relative;
 	height: 40px;
+	width: 250px;
 }
 
 .leaflet-control-geocoder-expanded .leaflet-control-geocoder-form {
 	margin-top: -37px;
 	padding-left: 10px;
-	padding-right: 20px;
+	padding-right: 5px;
 	margin-right: 50px;
 	background-color: #222222;
 	height: 37px;
