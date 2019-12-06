@@ -88,8 +88,8 @@ $columns = array(
 $sql_details = array(
     'user' => 'postgres',
     'pass' => 'postgres',
-    'db'   => 'udfobjects',
-    'host' => 'localhost',
+    'db'   => 'udf_bak',
+    'host' => '192.168.44.35',
     'port' => '5432'
 );
  

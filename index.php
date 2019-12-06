@@ -11,7 +11,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="data/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="data/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="data/images/favicon/favicon-16x16.png">
@@ -75,11 +74,11 @@
     <script src="data/leafletprint/src/print.Provider.js"></script>
     <script src="data/search/src/geojsonautocomplete.js"></script>
     <script src="data/latlng/L.Control.MousePosition.js"></script>
+    <script src="data/TopBox.js"></script>
 </head>
 <body>
 <div id='map'>
 </div>
-
 <!--<script src="data/geoserver.js"></script>-->
 <script src="data/functions.js"></script>
 <script src="data/map.js"></script>
