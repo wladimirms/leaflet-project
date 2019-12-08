@@ -20,7 +20,9 @@
  
 // DB table to use
 //$table = 'uds_main';
-$table = 'view_uds';
+//$table = 'view_uds';
+//$table = 'view_auth';
+$table = 'inv_auth_uds';
  
 // Table's primary key
 $primaryKey = 'oid';
@@ -30,7 +32,7 @@ $primaryKey = 'oid';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array ( 'db' => 'oid', 'dt' => 'oid'),
+    array ( 'db' => 'oid', 'dt' => 'oid'/*, 'href' => 'server-side/server.php'*/),
     array ( 'db' => 'uniq_id', 'dt' => 'uniq_id'),
     array ( 'db' => 'stor_folder', 'dt' => 'stor_folder'),
     array ( 'db' => 'stor_phys', 'dt' => 'stor_phys'),
@@ -88,8 +90,8 @@ $columns = array(
 $sql_details = array(
     'user' => 'postgres',
     'pass' => 'postgres',
-    'db'   => 'udf_bak',
-    'host' => '192.168.44.35',
+    'db'   => 'udfobjects',
+    'host' => 'localhost',
     'port' => '5432'
 );
  
@@ -105,3 +107,4 @@ require( 'ssp.class.pg.php' );
 echo json_encode(
     SSP::simple( $_POST, $sql_details, $table, $primaryKey, $columns )
 );
+?>

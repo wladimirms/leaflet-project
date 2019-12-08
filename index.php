@@ -89,6 +89,6 @@
 <!--<script src="data/bindpopup.js"></script>-->
 <!--<script src="data/watermark.js"></script>-->
 <script src="data/LeftBox.js"></script>
-<!--<script src="data/left-menu.js"></script>-->
+<script src="data/left-menu.js"></script>
 </body>
 </html>

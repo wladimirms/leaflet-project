@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="http://www.tsnigri.ru/templates/housebuild/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link rel="stylesheet" type="text/css" href="Bootstrap-4-4.1.1/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="DataTables-1.10.20/css/dataTables.bootstrap4.css"/>
     <link rel="stylesheet" type="text/css" href="FixedHeader-3.1.6/css/fixedHeader.bootstrap4.css"/>
@@ -12,7 +13,7 @@
     body {
         line-height: 1.2em;
         font-size: 80%;
-        font-family: "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+        font-family: "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, SansSerif;
         margin: 5px;
         padding: 5px;
         color: #333;
@@ -79,18 +80,47 @@ input[type="text"]::-webkit-search-cancel-button {
         color: rgba(211, 168, 98, 0.9);
         }
 
+    .show-card {
+        cursor: alias;
+        color: royalblue;
+    }
+
     .GetInfo {
         cursor: pointer;
-        color: dodgerblue;
+        color: royalblue;
     }
 
     .GetInfo.spawned {
         cursor: pointer;
+
         color: slategrey;
+    }
+    .dropdown-menu {
+        font-size: inherit;
+        margin-top: 0px;
+        background-color: #6c757d;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+    .dropdown-item {
+        padding-right: 3px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 3px;
+        color: white;
+    }
+    div.dataTables_processing {
+        z-index: 1;
+        background-color: #f8fffd;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
     }
 
 </style>
- 
+
     <script type="text/javascript" src="jQuery-3.3.1/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="Bootstrap-4-4.1.1/js/bootstrap.js"></script>
     <script type="text/javascript" src="DataTables-1.10.20/js/jquery.dataTables.js"></script>
@@ -128,9 +158,15 @@ input[type="text"]::-webkit-search-cancel-button {
                 "className":      'actions-control',
                 "orderable":      false,
                 "searchable":     false,
-                "data":           null,
+                "data":           "oid",
                 "title": '<i class="fas fa-info-circle fa-1x info-header"></i>',
-                "defaultContent": '<i class="fas fa-info-circle fa-2x GetInfo" title="Щелкните, чтобы показать/скрыть подробную информацию по ОУ."></i>'
+                /*"defaultContent": '<i class="far fa-eye fa-lg GetInfo" title="Щелкните, чтобы показать/скрыть подробную информацию по ОУ."></i>'+' '+
+                '<a href="server-side/test.php" target="_blank"><i class="fas fa-scroll fa-lg show-card" title="Щелкните, чтобы показать/скрыть подробную информацию по ОУ."></i></a>',*/
+                "render": function ( data, type, row, meta ) {
+                    var resHTML = '<i class="far fa-eye fa-lg GetInfo" title="Щелкните, чтобы показать/скрыть подробную информацию по ОУ."></i>'+' ';
+                    resHTML +=  '<a href="cardview/test.php?oid='+data+'" target="_blank"><i class="fas fa-scroll fa-lg show-card" title="Перейти к карточке ОУ."></i></a>'
+                    return resHTML;
+                }
                 /*<button class="GetName">Name!</button> <button class="GetPosition">Position!</button>*/
             },
             //END ACTIONS
@@ -154,7 +190,7 @@ input[type="text"]::-webkit-search-cancel-button {
             {"data": "obj_name", "orderable": true, "searchable": true, "visible": true, "title": "Наименование ОУ"},
             {"data": "obj_synopsis", "orderable": true, "searchable": true, "visible": true, "title": "Реферат"},
             {"data": "obj_main_group", "orderable": true, "searchable": true, "visible": true, "title": "Группа ОУ"},
-            {"data": "obj_sub_group", "orderable": true, "searchable": true, "visible": true, "title": "Подгруппа ОУ "},
+            {"data": "obj_sub_group", "orderable": true, "searchable": true, "visible": true, "title": "Подгруппа ОУ"},
             {"data": "obj_type", "orderable": true, "searchable": true, "visible": true, "title": "Тип ОУ"},
             {"data": "obj_sub_type", "orderable": true, "searchable": true, "visible": true, "title": "Подтип ОУ"},
             {"data": "obj_assoc_inv_nums", "orderable": true, "searchable": true, "visible": false, "title": "Связанные инв. №№"},
@@ -281,6 +317,8 @@ input[type="text"]::-webkit-search-cancel-button {
                 "fixedHeader": false,
                 lengthMenu:[[5, 10, 25, 50, -1],
                            [5, 10, 25, 50, "Все" ]],
+                "pageLength": 10,
+                "scroller": false,
                 "scrollX": true,
                 "pagingType": "full_numbers",
                 "processing": true,
@@ -299,9 +337,20 @@ input[type="text"]::-webkit-search-cancel-button {
                     {
                         extend: 'colvis',
                         collectionLayout: 'three-column',
-                        text: "Столбцы",
+                        text: '<span title="Включить/выключить видимость столбцов">Столбцы</span>',
                         columnText: function ( dt, idx, title ) {
                             return (idx+1)+': '+title;
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: '<span title="Для выгрузки всех данных в Excel сначала выберите &quot;Показать ВСЕ записи&quot;"><i class="far fa-file-excel"></i> Excel</span>',
+                        exportOptions: {
+                            modifier: {
+                                search: 'applied',
+                                order: 'applied',
+                                page: 'all'
+                            }
                         }
                     }
                 ]
@@ -362,14 +411,19 @@ input[type="text"]::-webkit-search-cancel-button {
                     // This row is already open - close it
                     row.child.hide();
                     //tr.removeClass('shown');
+                    $(this).addClass('fa-eye');
+                    $(this).removeClass('fa-eye-slash');
                 }
                 else {
                     // Open this row
                     row.child( format(row.data()) ).show();
                     //tr.addClass('shown');
+                    $(this).addClass('fa-eye-slash');
+                    $(this).removeClass('fa-eye');
                 }
                 $(this).toggleClass("spawned");
             });
+
 
             /*table.buttons().container()
                 .appendTo( $('.col-md-6:eq(0)', table.table().container()) );
@@ -424,14 +478,14 @@ input[type="text"]::-webkit-search-cancel-button {
                     <th>Связ. Инв.<br>(obj_assoc_inv_nums, 18)</th>
                     <th>Дата ОУ<br>(obj_date, 19)</th>
                     <th>Год<br>(obj_year, 20)</th>
-                    <th>Авторы<br>(obj_authors, 21)</th>
+                    <th style="min-width: 250px;">Авторы<br>(obj_authors, 21)</th>
                     <th>Организации<br>(obj_orgs, 22)</th>
                     <th>Огр. гриф<br>(obj_restrict, 23)</th>
                     <th>Права на ОУ<br>(obj_rights, 24)</th>
                     <th>Наим. регл. док.<br>(obj_rdoc_name, 25)</th>
                     <th>Номер регл. док.<br>(obj_rdoc_num, 26)</th>
                     <th>ИД регл. док.<br>(obj_rdoc_id, 27)</th>
-                    <th>Ключевые слова<br>(obj_terms, 28)</th>
+                    <th style="min-width: 250px;">Ключевые слова<br>(obj_terms, 28)</th>
                     <th>Источники ОУ<br>(obj_sources, 29)</th>
                     <th>Доп. инф. ОУ<br>(obj_supl_info, 30)</th>
                     <th>Осн. ПИ<br>(obj_main_min, 31)</th>

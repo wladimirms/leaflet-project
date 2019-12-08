@@ -56,6 +56,7 @@ class SSP {
 	 *  @param  array $conn SQL connection details. The array should have
 	 *    the following properties
 	 *     * host - host name
+     *     * port - port number
 	 *     * db   - database name
 	 *     * user - user name
 	 *     * pass - user password
@@ -425,6 +426,37 @@ class SSP {
 		// Return all
 		return $stmt->fetchAll(PDO::FETCH_BOTH);
 	}
+
+    static function sql_exec_assoc($db, $bindings, $sql = null) {
+        // Argument shifting
+        if ($sql === null) {
+            $sql = $bindings;
+        }
+
+        $stmt = $db->prepare($sql);
+        //self::fatal($sql);
+        //echo $sql;
+        //print_r($sql);
+
+        // Bind parameters
+        if (is_array($bindings)) {
+            for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+                //print_r($bindings);
+                $binding = $bindings[$i];
+                $stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
+            }
+        }
+
+        // Execute
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            self::fatal("An SQL error occurred: " . $e->getMessage());
+        }
+
+        // Return all
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		     * Internal methods
