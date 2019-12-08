@@ -566,7 +566,6 @@ input[type="text"]::-webkit-search-cancel-button {
                      <th>Таймкод<br>(timecode, 50)</th>
                  </tr>
             </tfoot>
-            
         </table>
      </div>
 </body>
