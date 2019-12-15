@@ -73,7 +73,6 @@
     <script src="data/leafletprint/src/print.Provider.js"></script>
     <script src="data/search/src/geojsonautocomplete.js"></script>
     <script src="data/latlng/L.Control.MousePosition.js"></script>
-    <script src="data/TopBox.js"></script>
 </head>
 <body>
 <div id='map'>
@@ -88,6 +87,5 @@
 <!--<script src="data/bindpopup.js"></script>-->
 <!--<script src="data/watermark.js"></script>-->
 <script src="data/LeftBox.js"></script>
-<script src="data/TopBox.js"></script>
 </body>
 </html>

@@ -141,3 +141,34 @@ a:active {
     text-decoration: none;
 }
 
+#dtables {
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+}
+
+#dtables > div {
+    margin-top: -32px;
+    text-align: center;
+    border-bottom: 3px solid #222;
+}
+
+#dtables > iframe {
+    width: 100%;
+    border: none;
+    height: 0px;
+}
+
+#dtablesSwitch {
+    background-color: #222222;
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 200px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}

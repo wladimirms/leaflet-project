@@ -34,10 +34,46 @@ var LeftBoxCreateInterface = function () {
     $("#searchContainer").GeoJsonAutocomplete({});
 }
 
-$(document).ready(function () {
-    $('body').append('<div id="leftbox"></div>');
-    LeftBoxData.object = $("#leftbox");
-    LeftBoxCreateInterface();
-})
+var dtablesInit = function () {
+    var SH = $(self).innerHeight();
+    SH = Math.round(SH);
+    halfSH = Math.round(SH / 2);
+    $('body').append('<div id="dtables" open-top="' + halfSH + 'px" close-top="' + SH + 'px">' +
+        '<div><a href="#" id="dtablesSwitch">Отрыть/Закрыть</a></div>' +
+        '<iframe src="/data/dtables/index.php"></iframe>' +
+        '</div>');
+    $('#dtables').css({
+        'top': SH + 'px',
+        'display': 'block',
+    });
+}
+
+var showGeometry = function (text) {
+    alert('This is ' + text);
+}
+
+$(document)
+    .on('click', '#dtablesSwitch', function () {
+        var OBJ = $('#dtables');
+        var STATUS = OBJ.attr('switch-status');
+        var H;
+        console.log(STATUS);
+        STATUS = STATUS != 'opened' ? 'closed' : 'opened';
+        if (STATUS == 'opened') {
+            H = OBJ.attr('close-top');
+        } else {
+            H = OBJ.attr('open-top');
+        }
+        OBJ.animate({'top': H}, 250);
+        OBJ.find('iframe').animate({'height': H}, 250);
+        OBJ.attr('switch-status', STATUS != 'opened' ? 'opened' : 'closed');
+        return false;
+    })
+    .ready(function () {
+        $('body').append('<div id="leftbox"></div>');
+        LeftBoxData.object = $("#leftbox");
+        LeftBoxCreateInterface();
+        dtablesInit();
+    })
 
 

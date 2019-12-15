@@ -14,8 +14,8 @@
         line-height: 1.2em;
         font-size: 80%;
         font-family: "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, SansSerif;
-        margin: 5px;
-        padding: 5px;
+        margin: 0px;
+        padding: 0px;
         color: #333;
         background-color: #fff;
     }
@@ -64,7 +64,7 @@ input[type="text"]::-webkit-search-cancel-button {
     }
     div.detailblock {
         border-style: solid;
-        border-radius: 10px;
+        border-radius: 0px;
         border-width: thin;
         border-color: rgba(44, 204, 178, 0.52);
     }
@@ -451,6 +451,7 @@ input[type="text"]::-webkit-search-cancel-button {
 </head>
 
 <body>
+<button onclick="window.parent.showGeometry('shit');">111</button>
      <div class="datatable-container dt-bootsrap4 bg-dark text-white rounded" style="margin-left:1%; width:98%;">
         <h2 style="text-align:center;">Реестр объектов учета</h2>
         <table name="tbl-uds" id="tbl-uds" class="table-dark table-responsive-sm compact table-striped table-bordered text-center" style="width:100%;">
