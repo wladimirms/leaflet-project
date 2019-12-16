@@ -7,8 +7,8 @@ var LeafIcon = L.Icon.extend({
         iconAnchor:   [10, 33],
         shadowAnchor: [10, 33],
         popupAnchor:  [-0, -0]
-        }
-    });
+    }
+});
 
 var orangeIcon = new LeafIcon({iconUrl: 'data/images/orangeicon.png'}),
     redIcon = new LeafIcon({iconUrl: 'data/images/redicon.png'}),
@@ -20,28 +20,31 @@ var orangeIcon = new LeafIcon({iconUrl: 'data/images/orangeicon.png'}),
     pinkIcon = new LeafIcon({iconUrl: 'data/images/pinkicon.png'}),
     lightorangeIcon = new LeafIcon({iconUrl: 'data/images/lightorangeicon.png'});
 
-    L.icon = function (options) {return new L.Icon(options);};
+L.icon = function (options) {return new L.Icon(options);};
+
 
 var geojson2017, grr2017 = L.layerGroup(),
     geojson2017 = L.geoJson(grr, {
-        style: style,
-        onEachFeature: onEachFeature
+        style: onEachStyle,
+        onEachFeature: onEachFeature,
     }).addTo(grr2017),
 
     geojson2018, grr2018 = L.layerGroup(),
     geojson2018 = L.geoJson(grrpolygon2018, {
-        style: style,
-        onEachFeature: onEachFeature
+        style: onEachStyle,
+        onEachFeature: onEachFeature,
     }).addTo(grr2018),
 
     popup2017, popupJson2017 = L.layerGroup(),
     popupJson2017= L.geoJson(popupCentroids2017, {
-        onEachFeature: onEachFeature
+        style: onEachStyle,
+        onEachFeature: onEachFeature,
     }).addTo(grr2017),
 
     popup2018, popupJson2018 = L.layerGroup(),
     popupJson2018= L.geoJson(popupCentroids2018, {
-        onEachFeature: onEachFeature
+        style: onEachStyle,
+        onEachFeature: onEachFeature,
     }).addTo(grr2018);
 
 var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
@@ -144,7 +147,6 @@ var overlays = {
     "Публичная кадастровая карта": RosreestrCadastre,
     "Объекты ГРР за 2018 год": grr2018,
     "Объекты ГРР за 2017 год": grr2017,
-
 };
 
     L.control.layers(baseLayers, overlays, {
@@ -208,7 +210,23 @@ var printControl = L.control.print({
 });
     map.addControl(printControl);
 
+var markerClusters = L.markerClusterGroup();
 
+for ( var i = 0; i < markers.length; ++i )
+{
+    var popup = markers[i].name +
+        '<br/>' + markers[i].city +
+        '<br/><b>IATA/FAA:</b> ' + markers[i].iata_faa +
+        '<br/><b>ICAO:</b> ' + markers[i].icao +
+        '<br/><b>Altitude:</b> ' + Math.round( markers[i].alt * 0.3048 ) + ' m' +
+        '<br/><b>Timezone:</b> ' + markers[i].tz;
+
+    var m = L.marker( [markers[i].lat, markers[i].lng], {icon: greyIcon} )
+        .bindPopup( popup );
+
+    markerClusters.addLayer( m );
+}
+map.addLayer( markerClusters );
 
     
 

@@ -12,12 +12,12 @@
 <style type="text/css">
     body {
         line-height: 1.2em;
-        font-size: 80%;
+        font-size: 75%;
         font-family: "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, SansSerif;
-        margin: 0px;
-        padding: 0px;
+        margin: 2px;
+        padding: 2px;
         color: #333;
-        background-color: #fff;
+        background-color: #343a40;
     }
 input[type="search"]::-webkit-search-cancel-button {
      -webkit-appearance: searchfield-cancel-button;
@@ -452,8 +452,7 @@ input[type="text"]::-webkit-search-cancel-button {
 
 <body>
 <button onclick="window.parent.showGeometry('shit');">111</button>
-     <div class="datatable-container dt-bootsrap4 bg-dark text-white rounded" style="margin-left:1%; width:98%;">
-        <h2 style="text-align:center;">Реестр объектов учета</h2>
+     <div class="datatable-container dt-bootsrap4 bg-dark text-white rounded" style="margin-left:0%; width:100%;">
         <table name="tbl-uds" id="tbl-uds" class="table-dark table-responsive-sm compact table-striped table-bordered text-center" style="width:100%;">
             <thead>
                 <tr>

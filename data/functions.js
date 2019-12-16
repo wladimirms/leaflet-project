@@ -12,7 +12,7 @@
                                          '#ffffff';
     }
 
-    function style(feature) {
+    function onEachStyle(feature) {
         return {
             fillColor: getColor(feature.properties.density),
             weight: 0.5,

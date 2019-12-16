@@ -92,7 +92,7 @@ $sql_details = array(
     'user' => 'postgres',
     'pass' => 'postgres',
     'db'   => 'udfobjects',
-    'host' => 'localhost',
+    'host' => 'toliman',
     'port' => '5432'
 );
  

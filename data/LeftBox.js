@@ -39,7 +39,7 @@ var dtablesInit = function () {
     SH = Math.round(SH);
     halfSH = Math.round(SH / 2);
     $('body').append('<div id="dtables" open-top="' + halfSH + 'px" close-top="' + SH + 'px">' +
-        '<div><a href="#" id="dtablesSwitch">Отрыть/Закрыть</a></div>' +
+        '<div><a href="#" id="dtablesSwitch">Реестр объектов учета</a></div>' +
         '<iframe src="/data/dtables/index.php"></iframe>' +
         '</div>');
     $('#dtables').css({

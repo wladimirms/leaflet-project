@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="data/leafletmeasure/leaflet.measurecontrol.css"/>
     <link rel="stylesheet" href="data/search/src/geojsonautocomplete.css"/>
     <link rel="stylesheet" href="data/latlng/L.Control.MousePosition.css"/>
+    <link rel="stylesheet" href="data/Leaflet.markercluster-master/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="data/Leaflet.markercluster-master/dist/MarkerCluster.Default.css"/>
 
     <script src="data/jquery.js"></script>
     <script src="data/leaflet.js"></script>
@@ -73,6 +75,8 @@
     <script src="data/leafletprint/src/print.Provider.js"></script>
     <script src="data/search/src/geojsonautocomplete.js"></script>
     <script src="data/latlng/L.Control.MousePosition.js"></script>
+    <script src="data/Leaflet.markercluster-master/dist/leaflet.markercluster-src.js"></script>
+    <script src="data/markers.js"></script>
 </head>
 <body>
 <div id='map'>

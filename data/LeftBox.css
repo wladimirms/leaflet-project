@@ -30,7 +30,7 @@ a:active {
 }
 
 #leftbox {
-    padding-left: 50px;
+    padding-left: 10px;
     padding-top: 10px;
     position: fixed;
     left: 0;
@@ -66,7 +66,10 @@ a:active {
 }
 
 #leftbox .leftbox-content{
-    background-color: #443A3A;
+    background-color: #343a40;
+    background-image: url("/data/images/compsearch_1.png");
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 400px;
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
