@@ -1,28 +1,4 @@
 
-var LeafIcon = L.Icon.extend({
-    options: {
-        shadowUrl: 'data/images/marker-shadow.png',
-        iconSize:     [20, 33],
-        shadowSize:   [30, 33],
-        iconAnchor:   [10, 33],
-        shadowAnchor: [10, 33],
-        popupAnchor:  [-0, -0]
-    }
-});
-
-var orangeIcon = new LeafIcon({iconUrl: 'data/images/orangeicon.png'}),
-    redIcon = new LeafIcon({iconUrl: 'data/images/redicon.png'}),
-    greenIcon = new LeafIcon({iconUrl: 'data/images/greenicon.png'}),
-    brownIcon = new LeafIcon({iconUrl: 'data/images/brownicon.png'}),
-    blueIcon = new LeafIcon({iconUrl: 'data/images/blueicon.png'}),
-    yellowIcon = new LeafIcon({iconUrl: 'data/images/yellowicon.png'}),
-    greyIcon = new LeafIcon({iconUrl: 'data/images/greyicon.png'}),
-    pinkIcon = new LeafIcon({iconUrl: 'data/images/pinkicon.png'}),
-    lightorangeIcon = new LeafIcon({iconUrl: 'data/images/lightorangeicon.png'});
-
-L.icon = function (options) {return new L.Icon(options);};
-
-
 var geojson2017, grr2017 = L.layerGroup(),
     geojson2017 = L.geoJson(grr, {
         style: onEachStyle,
@@ -38,12 +14,14 @@ var geojson2017, grr2017 = L.layerGroup(),
     popup2017, popupJson2017 = L.layerGroup(),
     popupJson2017= L.geoJson(popupCentroids2017, {
         style: onEachStyle,
+        pointToLayer: pointToLayerMain,
         onEachFeature: onEachFeature,
     }).addTo(grr2017),
 
     popup2018, popupJson2018 = L.layerGroup(),
     popupJson2018= L.geoJson(popupCentroids2018, {
         style: onEachStyle,
+        pointToLayer: pointToLayerMain,
         onEachFeature: onEachFeature,
     }).addTo(grr2018);
 
@@ -221,7 +199,7 @@ for ( var i = 0; i < markers.length; ++i )
         '<br/><b>Altitude:</b> ' + Math.round( markers[i].alt * 0.3048 ) + ' m' +
         '<br/><b>Timezone:</b> ' + markers[i].tz;
 
-    var m = L.marker( [markers[i].lat, markers[i].lng], {icon: greyIcon} )
+    var m = L.marker( [markers[i].lat, markers[i].lng], {icon: yellowIcon} )
         .bindPopup( popup );
 
     markerClusters.addLayer( m );

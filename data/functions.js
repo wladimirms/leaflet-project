@@ -1,5 +1,29 @@
 
-    function getColor(d) {
+    var LeafIcon = L.Icon.extend({
+        options: {
+            shadowUrl: 'data/images/marker-shadow.png',
+            iconSize:     [20, 33],
+            shadowSize:   [30, 33],
+            iconAnchor:   [10, 33],
+            shadowAnchor: [10, 33],
+            popupAnchor:  [-0, -0]
+        }
+    });
+
+    var orangeIcon = new LeafIcon({iconUrl: 'data/images/orangeicon.png'}),
+        redIcon = new LeafIcon({iconUrl: 'data/images/redicon.png'}),
+        greenIcon = new LeafIcon({iconUrl: 'data/images/greenicon.png'}),
+        brownIcon = new LeafIcon({iconUrl: 'data/images/brownicon.png'}),
+        blueIcon = new LeafIcon({iconUrl: 'data/images/blueicon.png'}),
+        yellowIcon = new LeafIcon({iconUrl: 'data/images/yellowicon.png'}),
+        greyIcon = new LeafIcon({iconUrl: 'data/images/greyicon.png'}),
+        pinkIcon = new LeafIcon({iconUrl: 'data/images/pinkicon.png'}),
+        lightorangeIcon = new LeafIcon({iconUrl: 'data/images/lightorangeicon.png'});
+
+    L.icon = function (options) {return new L.Icon(options);};
+
+
+function getColor(d) {
     return d === 'АБЦМ'                     ? '#b18bc4' :
            d === 'Золото'                   ? '#fec44f' :
            d === 'Золото + полиметаллы'     ? '#fff7bc' :
@@ -58,6 +82,10 @@
 		geojson.resetStyle(e.target);
 
 	}
+
+    function pointToLayerMain (feature, latlng) {
+        return L.marker(latlng, {icon: orangeIcon});
+    };
 
 	function onEachFeature(feature, layer) {
         layer.bindPopup("<h2>" + feature.properties.name + "</h2><br><b>Субъект РФ: </b>" +
