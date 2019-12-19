@@ -9,13 +9,15 @@
     <link rel="stylesheet" type="text/css" href="Responsive-2.2.3/css/responsive.bootstrap4.css"/>
     <link rel="stylesheet" type="text/css" href="Scroller-2.0.1/css/scroller.bootstrap4.css"/>
     <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
 <style type="text/css">
     body {
         line-height: 1.2em;
-        font-size: 75%;
+        font-size: 70%;
         font-family: "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, SansSerif;
-        margin: 2px;
-        padding: 2px;
+        margin: 5px;
+        padding: 5px;
         color: #333;
         background-color: #343a40;
     }
@@ -62,9 +64,9 @@ input[type="text"]::-webkit-search-cancel-button {
     td.actions-control {
       min-width: 10px;
     }
-    div.detailblock {
+/*    div.detailblock {
         border-style: solid;
-        border-radius: 0px;
+        border-radius: 10px;
         border-width: thin;
         border-color: rgba(44, 204, 178, 0.52);
     }
@@ -74,7 +76,7 @@ input[type="text"]::-webkit-search-cancel-button {
         vertical-align: middle;
         text-align: center;
         font-size: small;
-    }
+    }*/
 
     div.nodata {
         color: rgba(211, 168, 98, 0.9);
@@ -155,7 +157,7 @@ input[type="text"]::-webkit-search-cancel-button {
             },*/
             //CUSTOM ACTIONS
             {
-                "className":      'actions-control',
+                "className":          'actions-control',
                 "orderable":      false,
                 "searchable":     false,
                 "data":           "oid",
@@ -164,7 +166,7 @@ input[type="text"]::-webkit-search-cancel-button {
                 '<a href="server-side/test.php" target="_blank"><i class="fas fa-scroll fa-lg show-card" title="Щелкните, чтобы показать/скрыть подробную информацию по ОУ."></i></a>',*/
                 "render": function ( data, type, row, meta ) {
                     var resHTML = '<i class="far fa-eye fa-lg GetInfo" title="Щелкните, чтобы показать/скрыть подробную информацию по ОУ."></i>'+' ';
-                    resHTML +=  '<a href="cardview/test.php?oid='+data+'" target="_blank"><i class="fas fa-scroll fa-lg show-card" title="Перейти к карточке ОУ."></i></a>'
+                    resHTML +=  '<a href="cardview/card.php?oid='+data+'" target="_blank"><i class="fas fa-scroll fa-lg show-card" title="Перейти к карточке ОУ."></i></a>'
                     return resHTML;
                 }
                 /*<button class="GetName">Name!</button> <button class="GetPosition">Position!</button>*/
@@ -271,7 +273,7 @@ input[type="text"]::-webkit-search-cancel-button {
                 //console.log(Object.keys(d).length);
                 let formattedHTML = '';
                 formattedHTML += '<div class="container detailblock" style="padding-left: 5px; padding-bottom: 5px; padding-top: 5px; padding-right: 5px; margin-left: 82px">' +'\n'+
-                                 '<table class="table table-dark table-sm table-striped table-bordered rounded text-sm-left">'+'\n';
+                                 '<table class="table table-dark table-sm table-striped table-bordered rounded text-sm-left detailblocktable">'+'\n';
                 //alert(formattedHTML);
                 for (let i = 0; i < Object.keys(d).length; i++){
                     //let currValue = Object.values(d)[i] || 'Нет данных';
@@ -451,7 +453,6 @@ input[type="text"]::-webkit-search-cancel-button {
 </head>
 
 <body>
-<button onclick="window.parent.showGeometry('shit');">111</button>
      <div class="datatable-container dt-bootsrap4 bg-dark text-white rounded" style="margin-left:0%; width:100%;">
         <table name="tbl-uds" id="tbl-uds" class="table-dark table-responsive-sm compact table-striped table-bordered text-center" style="width:100%;">
             <thead>
@@ -566,6 +567,7 @@ input[type="text"]::-webkit-search-cancel-button {
                      <th>Таймкод<br>(timecode, 50)</th>
                  </tr>
             </tfoot>
+            
         </table>
      </div>
 </body>

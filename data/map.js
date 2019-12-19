@@ -25,15 +25,16 @@ var geojson2017, grr2017 = L.layerGroup(),
         onEachFeature: onEachFeature,
     }).addTo(grr2018);
 
-var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
+var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data:',
     mbAttr2 = '&copy; <a href=" https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО',
-    ESRIAttr = '',
+    ESRIAttr = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     OSMAttr = '&copy; <a href=" https://www.openstreetmap.org/"> OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     BingAttr = '',
     GoAttr = '',
-    OTMAttr = ' © OpenStreetMap contributors, SRTM | map style: © OpenTopoMap (CC-BY-SA)',
-    DarkAttr = ' © OpenStreetMap contributors © CARTO, © CARTO';
+    OTMAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+    DarkAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    OGAttr = '';
 
     mbUrlOSM = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     mbUrlESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -44,6 +45,8 @@ var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data',
     mbUrlCadastre = 'https://pkk5.rosreestr.ru:443/arcgis/services/Cadastre/CadastreWMS/MapServer/WmsServer';
     mbUrlBase = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/BaseMap/MapServer/tile/{z}/{y}/{x}';
     mbUrlAnno = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/Anno/MapServer/tile/{z}/{y}/{x}';
+    mbUrlOG = 'http://wms.vsegei.ru/VSEGEI_Bedrock_geology/wms?';
+    mbUrlOG2 = 'http://wms.vsegei.ru/VSEGEI_Bedrock_geology2/wms?';
 
 var OpenStreetMap = L.tileLayer(mbUrlOSM, {attribution: OSMAttr}),
     RosreestrBase = L.tileLayer(mbUrlBase, {attribution: mbAttr}),
@@ -53,7 +56,9 @@ var OpenStreetMap = L.tileLayer(mbUrlOSM, {attribution: OSMAttr}),
     CartoDBDark = L.tileLayer(mbUrlDark, {attribution: DarkAttr}),
     ESRISat = L.tileLayer(mbUrlESRI, {attribution: ESRIAttr}),
     Sattelite = L.tileLayer(mbUrlBing, {attribution: BingAttr}),
-    GoogleHybrid = L.tileLayer(mbUrlGo, {attribution: GoAttr});
+    GoogleHybrid = L.tileLayer(mbUrlGo, {attribution: GoAttr}),
+    Vsegei1m = L.tileLayer.wms(mbUrlOG, {attribution: OGAttr, layers: 'RUSSIA_VSEGEI_1M_BLS'}),
+    Vsegei200 = L.tileLayer.wms(mbUrlOG2, {attribution: OGAttr, layers: 'CIS_VSEGEI_200K_BLS'});
 
 var wmsBaseLayer = L.tileLayer.wms("http://192.168.44.217:8080/geoserver/TOP/wms", {
     layers: 'TOP:adm_rfborders, TOP:adm_federalsubject',
@@ -123,6 +128,8 @@ var overlays = {
     "Bing Aerial": Sattelite,
     "Google Hybrid": GoogleHybrid,
     "Публичная кадастровая карта": RosreestrCadastre,
+    "Геологическая карта 1:1 000 000": Vsegei1m,
+    "Геологическая карта 1:200 000": Vsegei200,
     "Объекты ГРР за 2018 год": grr2018,
     "Объекты ГРР за 2017 год": grr2017,
 };
@@ -199,7 +206,7 @@ for ( var i = 0; i < markers.length; ++i )
         '<br/><b>Altitude:</b> ' + Math.round( markers[i].alt * 0.3048 ) + ' m' +
         '<br/><b>Timezone:</b> ' + markers[i].tz;
 
-    var m = L.marker( [markers[i].lat, markers[i].lng], {icon: yellowIcon} )
+    var m = L.marker( [markers[i].lat, markers[i].lng], {icon: greyIcon} )
         .bindPopup( popup );
 
     markerClusters.addLayer( m );

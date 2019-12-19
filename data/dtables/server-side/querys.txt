@@ -1,0 +1,17 @@
+//Запрос на вывод связанных инвентарок.
+SELECT * FROM view_final_3
+  WHERE view_final_3.oid IN
+  (SELECT linked_objs.linked_id2
+           FROM linked_objs where linked_objs.object_id =6497);
+
+
+SELECT * FROM view_final_3
+  WHERE view_final_3.oid IN
+  (SELECT linked_objs.linked_id2
+           FROM linked_objs where linked_objs.object_id = 6499
+  UNION
+  SELECT linked_objs.object_id
+           FROM linked_objs where linked_objs.linked_id2 = 6499
+  EXCEPT
+  SELECT 6499
+  );

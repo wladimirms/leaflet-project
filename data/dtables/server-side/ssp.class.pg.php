@@ -458,6 +458,37 @@ class SSP {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    static function sql_exec_param($db, $bindings, $sql = null, $fetch_type = PDO::FETCH_ASSOC) {
+        // Argument shifting
+        if ($sql === null) {
+            $sql = $bindings;
+        }
+
+        $stmt = $db->prepare($sql);
+        //self::fatal($sql);
+        //echo $sql;
+        //print_r($sql);
+
+        // Bind parameters
+        if (is_array($bindings)) {
+            for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+                //print_r($bindings);
+                $binding = $bindings[$i];
+                $stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
+            }
+        }
+
+        // Execute
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            self::fatal("An SQL error occurred: " . $e->getMessage());
+        }
+
+        // Return all
+        return $stmt->fetchAll($fetch_type);
+    }
+
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		     * Internal methods
 	*/

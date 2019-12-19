@@ -1,0 +1,192 @@
+body {
+    line-height: 1.2em;
+    font-size: 80%;
+    font-family: "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, SansSerif;
+    margin: 5px;
+    padding: 5px;
+    color: #333;
+    background-color: #443A3A;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+input[type="text"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+/*tr, td {text-align:center;}*/
+/*table {
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+     }*/
+/*table.cell-hyphens {
+    word-wrap: break-word;
+    max-width: 50px;
+    -webkit-hyphens: auto; !* iOS 4.2+ *!
+    -moz-hyphens: auto; !* Firefox 5+ *!
+    -ms-hyphens: auto; !* IE 10+ *!
+    hyphens: auto;
+}*/
+/*    .searchStyle
+    {
+        padding: 0px 0px;
+        margin-top: -0px;
+    }*/
+div.datatable-container {
+    padding: inherit;
+}
+td.details-control {
+    background: url('../resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('../resources/details_close.png') no-repeat center center;
+}
+
+td.actions-control {
+    min-width: 10px;
+}
+div.detailblock {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: thin;
+    border-color: rgba(44, 204, 178, 0.52);
+}
+div.detailblock td {
+    display: table-cell;
+    max-width: 400px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: small;
+}
+
+table.detailblocktable {
+    max-width: inherit;
+}
+
+div.nodata {
+    color: rgba(211, 168, 98, 0.9);
+}
+
+.show-card {
+    cursor: alias;
+    color: royalblue;
+}
+
+.GetInfo {
+    cursor: pointer;
+    color: royalblue;
+}
+
+.GetInfo.spawned {
+    cursor: pointer;
+
+    color: slategrey;
+}
+.dropdown-menu {
+    font-size: inherit;
+    margin-top: 0px;
+    background-color: #6c757d;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+.dropdown-item {
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    color: white;
+}
+div.dataTables_processing {
+    z-index: 1;
+    background-color: #f8fffd;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table.card-table {
+    width: 100%;
+}
+table.card-table tr th, td {
+    padding: 3px;
+    border-collapse: collapse;
+}
+
+table.link-table {
+    width: inherit;
+}
+table.link-table tr th, td {
+    padding: 2px;
+    border-collapse: collapse;
+}
+
+table.link-table td {
+    padding: 1px;
+    border-collapse: collapse;
+    word-break: break-word;
+    min-width: 100px;
+}
+
+table.link-table td:nth-child(1) {
+    min-width: 40px;
+    width: 40px;
+}
+
+.card-columns {
+    padding: 3px;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+    }
+}
+.card-header {
+    padding: 0.25rem;
+}
+.card-body {
+    padding: 0.25rem;
+}
+
+.extended {
+    width: 100%;
+}
+
+.leaflet-control-layers {
+    text-align: left;
+}
+
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: currentColor !important;
+}
+
+div#cardmap {
+    height: 600px;
+}
