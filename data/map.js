@@ -1,6 +1,6 @@
 
 var geojson2017, grr2017 = L.layerGroup(),
-    geojson2017 = L.geoJson(grr, {
+    geojson2017 = L.geoJson(grrpolygon2017, {
         style: onEachStyle,
         onEachFeature: onEachFeature,
     }).addTo(grr2017),
@@ -23,7 +23,21 @@ var geojson2017, grr2017 = L.layerGroup(),
         style: onEachStyle,
         pointToLayer: pointToLayerMain,
         onEachFeature: onEachFeature,
-    }).addTo(grr2018);
+    }).addTo(grr2018),
+
+    Num1000, NumJson1000 = L.layerGroup(),
+    NumJson1000= L.geoJson(VsegeiNumJson1000, {
+        style: function (feature) {
+            return {
+                color: '#222',
+                weight: '0.1',
+                opacity: 1,
+                color: 'black',
+                fillOpacity: 0.1,
+            }
+        },
+        onEachFeature: onEachNum,
+    }).addTo(NumJson1000);
 
 var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data:',
     mbAttr2 = '&copy; <a href=" https://rosreestr.ru/site/">Росреестр</a> 2010, ЕЭКО',
@@ -132,6 +146,7 @@ var overlays = {
     "Геологическая карта 1:200 000": Vsegei200,
     "Объекты ГРР за 2018 год": grr2018,
     "Объекты ГРР за 2017 год": grr2017,
+    "Номенклатуры карт ВСЕГЕИ 1:1 000 000": NumJson1000,
 };
 
     L.control.layers(baseLayers, overlays, {

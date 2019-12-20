@@ -34,7 +34,7 @@
     <script src="data/OSMGeocoder.js"></script>
     <script src="data/togeojson.js"></script>
     <script src="data/leaflet.filelayer.js"></script>
-    <script src="data/grrdata.js"></script>
+    <script src="data/Num1000.js"></script>
     <script src="data/parser_2018.php"></script>
     <!--script src="data/grrseconddata.js"></script-->
     <!--<script src="data/grractive_centroid_2018.js"></script>-->

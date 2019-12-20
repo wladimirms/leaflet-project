@@ -21,11 +21,11 @@ switch ($showtype) {
     default:
         $tables = [
             'grrpolygon2017' => [
-                'table' => 'grractive_2018',
+                'table' => 'grractive_2017',
                 'parser' => 'default'
             ],
             'popupCentroids2017' => [
-                'table' => 'grractive_centroid_2018',
+                'table' => 'grractive_centroid_2017',
                 'parser' => 'default'
             ],
             'grrpolygon2018' => [
