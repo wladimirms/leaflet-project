@@ -88,8 +88,7 @@
                     else {
                         collapseOnBlur = true;
 
-                        window.setTimeout(function ()
-                        {
+                        window.setTimeout(function () {
                             $("#searchBox").focus();
                         }, 0);
                     }
@@ -143,11 +142,11 @@
             search: lastSearch,
             limit: limitToSend
         };
-        
-        if(options.pagingActive){
+
+        if (options.pagingActive) {
             data.offset = offset;
         }
-        
+
         $.ajax({
             url: options.geojsonServiceAddress,
             type: 'GET',
@@ -200,11 +199,20 @@
             resultCount--;
         }
 
+        var requestRegExp = new RegExp('(' + $("#searchBox").val() + ')', 'gi');
+
         for (var i = 0; i < loopCount; i++) {
+
+            var Title = features[i].properties.title
+                .replace(requestRegExp, '<mark>$1</mark>');
+
+            if (!Title.match(requestRegExp)) {
+                continue;
+            }
 
             var html = "<li id='listElement" + i + "' class='listResult'>";
             html += "<span id='listElementContent" + i + "' class='content'><img src='./image/" + features[i].properties.image + "' class='iconStyle' align='middle'>";
-            html += "<font size='2' color='#333' class='title'>" + features[i].properties.title + "</font><font size='1' color='#8c8c8c'> " + features[i].properties.description + "<font></span></li>";
+            html += "<font size='2' color='#333' class='title'>" + Title + "</font><font size='1' color='#8c8c8c'> " + features[i].properties.description + "<font></span></li>";
 
             $("#resultList").append(html);
 
@@ -400,7 +408,6 @@
         map.addLayer(focusLayer);
 
     }
-
 
 
     function fillSearchBox() {

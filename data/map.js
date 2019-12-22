@@ -1,6 +1,6 @@
 
 var geojson2017, grr2017 = L.layerGroup(),
-    geojson2017 = L.geoJson(grrpolygon2017, {
+    geojson2017 = L.geoJson(grrpolygon2018, {
         style: onEachStyle,
         onEachFeature: onEachFeature,
     }).addTo(grr2017),
@@ -12,7 +12,7 @@ var geojson2017, grr2017 = L.layerGroup(),
     }).addTo(grr2018),
 
     popup2017, popupJson2017 = L.layerGroup(),
-    popupJson2017= L.geoJson(popupCentroids2017, {
+    popupJson2017= L.geoJson(popupCentroids2018, {
         style: onEachStyle,
         pointToLayer: pointToLayerMain,
         onEachFeature: onEachFeature,

@@ -105,7 +105,8 @@ function getColor(d) {
     function onEachNum(feature, layer) {
         var popupContent = "<b>Номенклатурный лист: </b>" +
             feature.properties.num200 + "<br><b>L-код ВСЕГЕИ: </b>" +
-            feature.properties.l_code + "<br><b>Ссылка для скачивания: 404</b>";
+            feature.properties.l_code + "<br>"+
+        "<a href='/downloads/"+ (feature.properties.num200).toLowerCase() +".tar.gz'>Ссылка для скачивания</a>";
 
         if (feature.properties && feature.properties.popupContent) {
             popupContent += feature.properties.popupContent;
