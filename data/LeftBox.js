@@ -53,6 +53,17 @@ var showGeometry = function (text) {
 }
 
 $(document)
+    .on('click', '#leftboxMenu', function () {
+        ACTION = $(this).attr('click-action');
+        if (ACTION == undefined) {
+            ACTION = 'close';
+        }
+        ACTION_NEXT = ACTION == 'close' ? 'open' : 'close';
+        $('#leftbox').removeClass(ACTION_NEXT).addClass(ACTION);
+        $(this).text('').append(ACTION == 'close' ? '&gt;' : '&lt;');
+        $(this).attr('click-action', ACTION_NEXT);
+        return false;
+    })
     .on('click', '#dtablesSwitch', function () {
         var OBJ = $('#dtables');
         var STATUS = OBJ.attr('switch-status');

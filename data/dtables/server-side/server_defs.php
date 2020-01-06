@@ -88,11 +88,15 @@ $columns = array(
 );
  
 // SQL server connection information
+// pg_dump -h hostname -U username -F format -f dumpfile dbname
+// pg_restore -h hostname -U username -F format -d dbname dumpfile
+//
+// pg_restore -h localhost -U pguser -Fc -d udfobjects2 dump.tar.gz
 $sql_details = array(
-    'user' => 'postgres',
-    'pass' => 'postgres',
-    'db'   => 'udfobjects',
-    'host' => 'toliman',
+    'user' => 'pguser',
+    'pass' => '123456',
+    'db'   => 'udfobjects2',
+    'host' => '192.168.1.70',
     'port' => '5432'
 );
  
