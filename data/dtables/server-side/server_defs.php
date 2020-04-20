@@ -93,10 +93,10 @@ $columns = array(
 //
 // pg_restore -h localhost -U pguser -Fc -d udfobjects2 dump.tar.gz
 $sql_details = array(
-    'user' => 'pguser',
-    'pass' => '123456',
+    'user' => 'postgres',
+    'pass' => 'postgres',
     'db'   => 'udfobjects2',
-    'host' => '192.168.1.70',
+    'host' => '192.168.6.201',
     'port' => '5432'
 );
  

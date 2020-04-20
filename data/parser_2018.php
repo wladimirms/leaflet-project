@@ -1,5 +1,5 @@
 <?php
-$dsn = "pgsql:host=192.168.1.70;dbname=msb;port=5432";
+$dsn = "pgsql:host=192.168.44.217;dbname=msb;port=5432";
 $opt = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -20,14 +20,14 @@ switch ($showtype) {
         break;
     default:
         $tables = [
-          /*  'grrpolygon2017' => [
+            'grrpolygon2017' => [
                 'table' => 'grractive_2017',
                 'parser' => 'default'
             ],
             'popupCentroids2017' => [
                 'table' => 'grractive_centroid_2017',
                 'parser' => 'default'
-            ],*/
+            ],
             'grrpolygon2018' => [
                 'table' => 'grractive_2018',
                 'parser' => 'default'

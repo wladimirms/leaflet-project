@@ -1,6 +1,6 @@
 
 var geojson2017, grr2017 = L.layerGroup(),
-    geojson2017 = L.geoJson(grrpolygon2018, {
+    geojson2017 = L.geoJson(grrpolygon2017, {
         style: onEachStyle,
         onEachFeature: onEachFeature,
     }).addTo(grr2017),
@@ -12,7 +12,7 @@ var geojson2017, grr2017 = L.layerGroup(),
     }).addTo(grr2018),
 
     popup2017, popupJson2017 = L.layerGroup(),
-    popupJson2017= L.geoJson(popupCentroids2018, {
+    popupJson2017= L.geoJson(popupCentroids2017, {
         style: onEachStyle,
         pointToLayer: pointToLayerMain,
         onEachFeature: onEachFeature,
@@ -56,9 +56,9 @@ var mbAttr = 'Developed by TsNIGRI Department of GIS - ' + 'Map data:',
     mbUrlGo = 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}';
     mbUrlDark = 'http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png';
     mbUrlOTM = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
-    mbUrlCadastre = 'https://pkk5.rosreestr.ru:443/arcgis/services/Cadastre/CadastreWMS/MapServer/WmsServer';
-    mbUrlBase = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/BaseMap/MapServer/tile/{z}/{y}/{x}';
-    mbUrlAnno = 'https://pkk5.rosreestr.ru/arcgis/rest/services/BaseMaps/Anno/MapServer/tile/{z}/{y}/{x}';
+    mbUrlCadastre = 'https://pkk.rosreestr.ru:443/arcgis/services/Cadastre/CadastreWMS/MapServer/WmsServer';
+    mbUrlBase = 'https://pkk.rosreestr.ru/arcgis/rest/services/BaseMaps/BaseMap/MapServer/tile/{z}/{y}/{x}';
+    mbUrlAnno = 'https://pkk.rosreestr.ru/arcgis/rest/services/BaseMaps/Anno/MapServer/tile/{z}/{y}/{x}';
     mbUrlOG = 'http://wms.vsegei.ru/VSEGEI_Bedrock_geology/wms?';
     mbUrlOG2 = 'http://wms.vsegei.ru/VSEGEI_Bedrock_geology2/wms?';
 
