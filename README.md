@@ -1,2 +1,2 @@
-# Leaflet_project
+# leaflet-project
 https://maleficarvm@bitbucket.org/maleficarvm/leafletmap.git
